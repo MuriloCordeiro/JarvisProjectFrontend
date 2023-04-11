@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Flex, Button, Text, useBreakpointValue, Img } from "@chakra-ui/react";
 
 import Layout from "../Layouts/layout";
-import { BannersCarousel } from "../components/bannercarousel";
 
-export default function Home() {
+export default function Test() {
   // const isWideVersion = useBreakpointValue({
   //   base: true,
   //   sm: true,
@@ -21,15 +20,12 @@ export default function Home() {
   });
 
   return (
-    <>
-      <BannersCarousel />
-      <Layout>
-        <Text textStyle="Header3">teste</Text>
-        <Button variant="primary-button">PESQUISAR</Button>
-        <Button variant="secondary-button" mt="1rem">
-          Secondary Button
-        </Button>
-      </Layout>
-    </>
+    <Layout>
+      <Text textStyle="Header3">teste</Text>
+      <Button variant="primary-button">PESQUISAR</Button>
+      <Button variant="secondary-button" mt="1rem">
+        Secondary Button
+      </Button>
+    </Layout>
   );
 }
