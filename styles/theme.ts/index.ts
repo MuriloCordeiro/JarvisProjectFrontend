@@ -3,13 +3,13 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const breakpoints = {
-  base: "20rem", //  320px
-  xsm: "30rem", // 480px
-  sm: "37.5rem", // 600px
-  medium: "45rem", // 720px
-  large: "75rem", //  1200px
+  xs: "35rem", // 576px
+  sm: "48rem", // 768px
+  md: "62rem", // 992px
+  lg: "75rem", // 1200px
+  lp: "81.25rem", // 1300px
+  xl: "87.5rem", // 1400px
 };
-
 export const defaultTheme = extendTheme({
   breakpoints,
 
@@ -39,6 +39,7 @@ export const defaultTheme = extendTheme({
       light1: "#F7F5F6",
       light2: "#F1F0EE",
     },
+
     "pf-grey": {
       main: "#ABABAB",
     },
@@ -86,7 +87,6 @@ export const defaultTheme = extendTheme({
 
     titleSpaced: {
       fontFamily: "Poppins, Noto Sans, Arial, sans-serif",
-
       fontSize: "text1",
       fontWeight: "500",
       lineHeight: "110%",

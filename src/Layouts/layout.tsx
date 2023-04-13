@@ -18,7 +18,6 @@ import {
 
 import { Router, useRouter } from "next/router";
 import Header from "./header";
-import { BannersCarousel } from "../components/bannercarousel";
 import { ReactNode } from "react";
 
 interface LayoutProps {
@@ -42,7 +41,13 @@ export default function LayoutDesk({ children, ...rest }: LayoutProps) {
       {/* LAYOUT MOBILE */}
       {isWideVersion ? (
         <>
-          <Flex px="15rem" py="2.5rem" direction="column" h="100vh">
+          <Flex
+            //  px="15rem"
+
+            direction="column"
+            h="100vh"
+            {...rest}
+          >
             {children}
           </Flex>
         </>

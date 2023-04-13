@@ -1,34 +1,44 @@
 import { useState } from "react";
-import { Flex, Button, Text, useBreakpointValue, Img } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  Text,
+  useBreakpointValue,
+  Img,
+  Input,
+} from "@chakra-ui/react";
 
 import Layout from "../Layouts/layout";
-import { BannersCarousel } from "../components/bannercarousel";
+import { BannersCarousel } from "../components/Carousel/bannerCarousel";
+import SearchBySize from "../components/Search/Desktop/searchBySize";
+import SearchByRim from "../components/Search/Desktop/searchByRim";
+import SearchByVehicle from "../components/Search/Desktop/searchByVehicle";
+import { WeeklyHighLights } from "../components/weeklyHighlights";
+import { TiresOnSale } from "../components/tiresOnSale";
+import { DisplayBrands } from "../components/displayBrands";
+import { PneufreeBlog } from "../components/pneufreeBlog";
 
 export default function Home() {
-  // const isWideVersion = useBreakpointValue({
-  //   base: true,
-  //   sm: true,
-  //   md: false,
-  //   lg: false,
-  // });
-
-  const responsiveStyles = useBreakpointValue({
+  const isWideVersion = useBreakpointValue({
     base: false,
-    xsm: false,
+    xs: false,
     sm: false,
-    medium: false,
-    large: true,
+    md: false,
+    lg: true,
+    xl: true,
   });
 
   return (
     <>
       <BannersCarousel />
       <Layout>
-        <Text textStyle="Header3">teste</Text>
-        <Button variant="primary-button">PESQUISAR</Button>
-        <Button variant="secondary-button" mt="1rem">
-          Secondary Button
-        </Button>
+        <SearchBySize />
+        <SearchByVehicle />
+        <SearchByRim />
+        <WeeklyHighLights />
+        <TiresOnSale />
+        <DisplayBrands />
+        <PneufreeBlog />
       </Layout>
     </>
   );

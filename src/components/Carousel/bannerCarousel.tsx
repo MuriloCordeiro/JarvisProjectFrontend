@@ -1,5 +1,5 @@
 import { Flex, Img } from "@chakra-ui/react";
-import { api } from "../services/api";
+import { api } from "../../services/api";
 import { useState } from "react";
 
 export function BannersCarousel() {

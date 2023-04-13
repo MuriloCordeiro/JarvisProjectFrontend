@@ -21,7 +21,7 @@ export default function Test() {
 
   return (
     <Layout>
-      <Text textStyle="Header3">teste</Text>
+      <Text textStyle="Header1">teste</Text>
       <Button variant="primary-button">PESQUISAR</Button>
       <Button variant="secondary-button" mt="1rem">
         Secondary Button

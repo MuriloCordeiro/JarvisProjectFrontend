@@ -1,12 +1,19 @@
-import { Flex, Text, Img, Input } from "@chakra-ui/react";
+import { Flex, Text, Img, Input, useBreakpointValue } from "@chakra-ui/react";
 
 export default function Header() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    sm: false,
+    medium: true,
+    large: false,
+    xl: true,
+  });
   return (
     <Flex
       h="70px"
       p="1rem"
       align="center"
-      px="10rem"
+      px="20rem"
       w="full"
       justify="space-between"
     >
