@@ -18,8 +18,12 @@ import {
 
 import { Router, useRouter } from "next/router";
 import Header from "./header";
+import { ReactNode } from "react";
 
-export default function LayoutDesk(props: any) {
+interface LayoutProps {
+  children: ReactNode | ReactNode[];
+}
+export default function LayoutDesk({ children, ...rest }: LayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const Router = useRouter();
@@ -37,9 +41,14 @@ export default function LayoutDesk(props: any) {
       {/* LAYOUT MOBILE */}
       {isWideVersion ? (
         <>
-          <Header />
-          <Flex px="15rem" py="2.5rem" direction="column" h="100vh">
-            {props.children}
+          <Flex
+            //  px="15rem"
+
+            direction="column"
+            h="100vh"
+            {...rest}
+          >
+            {children}
           </Flex>
         </>
       ) : (
