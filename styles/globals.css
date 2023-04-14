@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Barlow, sans-serif;
 }
 
 a {
@@ -18,8 +18,29 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
-    background: black;
   }
+}
+
+.swiper {
+  padding: 32px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: red;
+}
+
+.swiper-button-prev {
+  color: red;
+}
+
+.swiper-button-next {
+  color: orange;
 }
