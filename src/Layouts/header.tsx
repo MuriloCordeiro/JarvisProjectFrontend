@@ -1,44 +1,92 @@
 import { Flex, Text, Img, Input, useBreakpointValue } from "@chakra-ui/react";
 
 export default function Header() {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    sm: false,
-    medium: true,
-    large: false,
-    xl: true,
-  });
   return (
-    <Flex
-      h="70px"
-      p="1rem"
-      align="center"
-      px="20rem"
-      w="full"
-      justify="space-between"
-    >
-      <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Logos/PFLOGO.png" />
+    <>
+      {/* -------header-mobile------ */}
+      <Flex
+        h="70px"
+        p="1rem"
+        align="center"
+        px={["1rem", "4rem", "1rem", "2rem", "5rem", "12rem"]}
+        w="full"
+        justify="space-between"
+        display={["flex", "flex", "none"]}
+      >
+        <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Logos/PFLOGO.png" />
 
-      <Input placeholder="teste" borderRadius="20px" w="425px" />
-      <Flex>
-        <Img
-          src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/myaccountIcon.svg"
-          mr="0.5rem"
-        />
-        <Text>Minha conta</Text>
-      </Flex>
-      <Flex>
-        <Img
-          src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/phoneicon.svg"
-          mr="0.5rem"
-        />
-        <Text>(41) 6666-6666</Text>
+        <Flex alignItems={"center"} h={"full"}>
+          <Img src="https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/search-ico.svg" />
+
+          <Img
+            ml={"15px"}
+            src="https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/cart-ico.svg"
+          />
+
+          <Img
+            ml={"15px"}
+            src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/hamburgmenu.svg"
+          />
+        </Flex>
       </Flex>
 
-      <Flex as="button">
-        <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/hamburgmenu.svg" />
-        <Text></Text>
+      {/* -------header-desktop------ */}
+      <Flex
+        h="70px"
+        p="1rem"
+        align="center"
+        px={["1rem", "4rem", "1rem", "2rem", "5rem", "12rem"]}
+        w="full"
+        justify="space-between"
+        display={["none", "none", "flex"]}
+      >
+        <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Logos/PFLOGO.png" />
+
+        <Flex
+          alignItems={"center"}
+          border={"1px solid "}
+          borderColor={"pf-grey.main"}
+          borderRadius="20px"
+          paddingRight={"10px"}
+          transform={"1s"}
+        >
+          <Input
+            placeholder="Pesquise por  pneu, marca, medida ou veículo..."
+            w={["1rem", "4rem", "280px", "320px", "350px", "300px", "450px"]}
+            border={"none"}
+          />
+          <Img
+            src={
+              "https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/search.svg"
+            }
+          />
+        </Flex>
+
+        <Flex alignItems={"center"}>
+          <Flex mr={"15px"}>
+            <Img
+              src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/myaccountIcon.svg"
+              mr="0.5rem"
+            />
+            <Text fontWeight={"bold"}>Minha conta</Text>
+          </Flex>
+          <Flex mr={"15px"}>
+            <Img
+              src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/phoneicon.svg"
+              mr="0.5rem"
+            />
+            <Text fontWeight={"bold"}>(41) 4042-1100</Text>
+          </Flex>
+          <Img
+            mr={"15px"}
+            src="https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/cart-ico.svg"
+          />
+          <Flex as="button">
+            <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Icons/hamburgmenu.svg" />
+            <Text></Text>
+          </Flex>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 }

@@ -22,39 +22,32 @@ import { ReactNode } from "react";
 
 interface LayoutProps {
   children: ReactNode | ReactNode[];
+  bgColor?: any;
+  px?: string[];
+  mb?: string;
 }
-export default function LayoutDesk({ children, ...rest }: LayoutProps) {
+export default function Layout({ children, ...rest }: LayoutProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const Router = useRouter();
 
   const isWideVersion = useBreakpointValue({
-    base: false,
-    xsm: false,
-    sm: true,
-    medium: false,
-    large: true,
+    md: true,
+    lg: true,
   });
 
   return (
     <>
-      {/* LAYOUT MOBILE */}
-      {isWideVersion ? (
-        <>
-          <Flex
-            //  px="15rem"
-
-            direction="column"
-            h="100vh"
-            {...rest}
-          >
-            {children}
-          </Flex>
-        </>
-      ) : (
-        <>teste</>
-      )}
-      {/* LAYOUT DESKTOP */}
+      <Flex
+        direction={"column"}
+        alignItems={"center"}
+        w={"full"}
+        minH={"100vh"}
+        h={"auto"}
+        {...rest}
+      >
+        {children}
+      </Flex>
     </>
   );
 }
