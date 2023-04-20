@@ -20,10 +20,9 @@ a {
   }
 
   body {
-    color: white;
+    background-color: white;
   }
 }
-
 .swiper {
   padding: 32px;
 }
