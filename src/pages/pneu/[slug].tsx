@@ -1,6 +1,5 @@
 import {
   Flex,
-  useBreakpointValue,
   Img,
   Text,
   Select,
@@ -16,10 +15,10 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Layout from "../../Layouts/layout";
-import Rating from "../../components/Rating/rating";
 import BrandCard from "../../components/Product/brandCard";
 import FeatureCard from "../../components/Product/featureCard copy";
 import LabelInfo from "../../components/Product/labelInfo";
+import Rating, { ViewRatings } from "../../components/Rating/ratings";
 
 export default function Product() {
   return (
@@ -28,6 +27,7 @@ export default function Product() {
         bgColor={"pf-grey.light1"}
         px={["1rem", "4rem", "1rem", "2rem", "4rem", "12rem"]}
         mb={"25px"}
+        transition={"1s"}
       >
         {/* ------title-mobile------- */}
         <Flex
@@ -73,9 +73,11 @@ export default function Product() {
           justifyContent={"space-between"}
           padding={["10px", "10px", "25px"]}
           boxShadow={"0px 2px 2px rgba(0, 0, 0, 0.15)"}
+          transition={"1s"}
         >
           {/* ---------box-image---------- */}
           <Flex
+            transition={"1s"}
             width={["100%", "100%", "50%", "50%", "55%", "55%"]}
             flexDir={"column"}
           >
@@ -84,6 +86,7 @@ export default function Product() {
                 "https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/Icons/Produto/selo-mega-promo.png"
               }
               maxH={["70px", "70px", "100px"]}
+              transition={"1s"}
               objectFit={"contain"}
               position={"absolute"}
               mt={"25px"}
@@ -165,6 +168,7 @@ export default function Product() {
           {/* -----box---info----- */}
           <Flex
             width={["100%", "100%", "50%", "50%", "45%", "45%"]}
+            transition={"1s"}
             flexDir={"column"}
             alignItems={"flex-start"}
           >
@@ -207,6 +211,7 @@ export default function Product() {
               alignItems={"center"}
               color={"pf-black.light1"}
               justifyContent={["center", "center", "flex-start"]}
+              transition={"1s"}
               fontSize={["text2", "text2", "text1"]}
             >
               <Text>EQUIPAMENTO ORIGINAL:</Text>
@@ -230,10 +235,12 @@ export default function Product() {
               mt={"5px"}
               flexDir={["column", "column", "row"]}
               justifyContent={["center", "center", "flex-start"]}
+              transition={"1s"}
             >
               <Flex
                 w={["full", "full", "50%"]}
                 justifyContent={["center", "center", "flex-start"]}
+                transition={"1s"}
               >
                 <Rating TotalRatings={4} />
               </Flex>
@@ -254,6 +261,7 @@ export default function Product() {
               w={"full"}
               alignItems={"center"}
               flexDir={["column", "column", "row"]}
+              transition={"1s"}
               justifyContent={["center", "center", "flex-start"]}
             >
               <Flex alignItems={"center"}>
@@ -280,6 +288,7 @@ export default function Product() {
               mt={"0px"}
               alignItems={"center"}
               justifyContent={["center", "center", "flex-start"]}
+              transition={"1s"}
             >
               <Select
                 w={"120px"}
@@ -310,6 +319,7 @@ export default function Product() {
               mt={"10px"}
               alignItems={"center"}
               justifyContent={["center", "center", "flex-start"]}
+              transition={"1s"}
               flexDir={["column", "column", "row"]}
             >
               <Text>
@@ -403,6 +413,7 @@ export default function Product() {
 
         {/* ---desconto-box-mobile--- */}
         <Flex
+          transition={"1s"}
           display={["flex", "flex", "none"]}
           padding={["10px", "10px", "25px"]}
           borderRadius={"15px"}
@@ -554,6 +565,7 @@ export default function Product() {
 
         {/* ---Caracteristicas-mobile-- */}
         <Flex
+          transition={"1s"}
           display={["flex", "flex", "none"]}
           padding={["10px", "10px", "25px"]}
           borderRadius={"15px"}
@@ -633,9 +645,11 @@ export default function Product() {
           justifyContent={"space-between"}
           padding={["10px", "10px", "15px"]}
           boxShadow={"0px 2px 2px rgba(0, 0, 0, 0.15)"}
+          transition={"1s"}
         >
           <Flex
             width={["100%", "100%", "50%", "50%", "55%", "55%"]}
+            transition={"1s"}
             flexDir={"column"}
           >
             {/* -------CARACTERISTICAS-DESKTOP-------- */}
@@ -896,7 +910,11 @@ export default function Product() {
               </Accordion>
             </Flex>
           </Flex>
-          <Flex ml={"5px"} width={["100%", "100%", "50%", "50%", "45%", "45%"]}>
+          <Flex
+            ml={"5px"}
+            width={["100%", "100%", "50%", "50%", "45%", "45%"]}
+            transition={"1s"}
+          >
             <Flex ml={"5px"} mr={"5px"} w={"50%"} flexDir={"column"}>
               {/* ----UTQG------ */}
               <Flex w={"full"} flexDir={"column"}>
@@ -993,6 +1011,7 @@ export default function Product() {
           py={["10px", "10px", "25px"]}
           px={["10px", "10px", "15px"]}
           boxShadow={"0px 2px 2px rgba(0, 0, 0, 0.15)"}
+          transition={"1s"}
         >
           <Flex
             w={"full"}
@@ -1033,7 +1052,7 @@ export default function Product() {
                   CONTIPREMIUMCONTACT SSR{" "}
                   <span style={{ color: "#FF5353" }}>RUN FLAT</span>
                 </Text>
-                <Text>avaliacao aqui</Text>
+                <ViewRatings TotalRatings={4} />
                 <Button
                   display={["none", "none", "flex"]}
                   mb={"15px"}
@@ -1058,6 +1077,7 @@ export default function Product() {
 
             {/* ------linha-espacamento----------- */}
             <Flex
+              transition={"1s"}
               w={["full", "full", "auto"]}
               h={["5px", "5px", "250px"]}
               alignItems={"center"}
@@ -1076,6 +1096,7 @@ export default function Product() {
               w={["full", "full", "49%"]}
               flexDir={"column"}
               ml={["0px", "0px", "10px"]}
+              transition={"1s"}
             >
               <Flex flexDir={"column"} display={["none", "none", "flex"]}>
                 <Text fontSize={"title"} color={"pf-green.main"} mb={"10px"}>

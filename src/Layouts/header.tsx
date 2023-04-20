@@ -32,6 +32,7 @@ export default function Header() {
 
       {/* -------header-desktop------ */}
       <Flex
+        transition={"1s"}
         h="70px"
         p="1rem"
         align="center"
@@ -40,7 +41,11 @@ export default function Header() {
         justify="space-between"
         display={["none", "none", "flex"]}
       >
-        <Img src="https://d1mvenqtvaw2m9.cloudfront.net/Site/images/Logos/PFLOGO.png" />
+        <Img
+          transition={"1s"}
+          maxW={["100px", "100px", "120px", "180px", "180px", "180px", "180px"]}
+          src="https://pneufree.s3.sa-east-1.amazonaws.com/Site/images/logo.svg"
+        />
 
         <Flex
           alignItems={"center"}
@@ -48,11 +53,11 @@ export default function Header() {
           borderColor={"pf-grey.main"}
           borderRadius="20px"
           paddingRight={"10px"}
-          transform={"1s"}
+          transition={"1s"}
         >
           <Input
             placeholder="Pesquise por  pneu, marca, medida ou veículo..."
-            w={["1rem", "4rem", "280px", "320px", "350px", "300px", "450px"]}
+            w={["1rem", "200px", "250px", "320px", "350px", "300px", "400px"]}
             border={"none"}
           />
           <Img
