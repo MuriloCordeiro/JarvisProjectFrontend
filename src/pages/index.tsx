@@ -13,11 +13,13 @@ import { BannersCarousel } from "../components/Carousel/bannerCarousel";
 import SearchBySize from "../components/Search/Desktop/searchBySize";
 import SearchByRim from "../components/Search/Desktop/searchByRim";
 import SearchByVehicle from "../components/Search/Desktop/searchByVehicle";
-import { WeeklyHighLights } from "../components/weeklyHighlights";
+import WeeklyHighLights from "../components/weeklyHighlights";
 import { TiresOnSale } from "../components/tiresOnSale";
 import { DisplayBrands } from "../components/displayBrands";
 import { PneufreeBlog } from "../components/pneufreeBlog";
-
+// import { Slider } from "../components/Slider/Slider";
+import { SwiperProps, SwiperSlide } from "swiper/react";
+import Slider from "../components/Slider/Slider";
 export default function Home() {
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -35,6 +37,7 @@ export default function Home() {
         <SearchBySize />
         <SearchByVehicle />
         <SearchByRim />
+        {/* <Slider /> */}
         <WeeklyHighLights />
         <TiresOnSale />
         <DisplayBrands />

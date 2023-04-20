@@ -1,45 +1,51 @@
-import { Button, Flex, Img, Text } from "@chakra-ui/react";
-import { api } from "../services/api";
-import { useState } from "react";
+// pages/index.js
+
+import React from "react";
+import { Flex, Text, Img } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+const images = [
+  "/Image/brutus.png",
+  "/Image/brutus.png",
+  "/Image/brutus.png",
+  "/Image/brutus.png",
+];
 
-export function WeeklyHighLights() {
+export default function WeeklyHighLights() {
   return (
-    <>
-      <Flex w="100%" h="100%" justify="center">
-        <Flex w="100%" px="15rem">
-          <Swiper
-            loop={true}
-            slidesPerView={3}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-          >
-            {" "}
-            <SwiperSlide>
-              <Img src="/Image/brutus.png" w="full" />
-            </SwiperSlide>{" "}
-            <SwiperSlide>
-              <Img src="/Image/brutus.png" w="full" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Img src="/Image/brutus.png" w="full" />
-            </SwiperSlide>
-            <SwiperSlide />
-            <SwiperSlide />
-            <SwiperSlide />
-          </Swiper>
-        </Flex>
-      </Flex>
-      {/* Outros componentes de UI */}
-    </>
+    <Flex w="full" align="center" h="100rem" px="20rem">
+      <Swiper
+        modules={[Navigation, Pagination, A11y]}
+        slidesPerView={4}
+        navigation={true}
+        pagination={{ clickable: true }}
+        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+      >
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>{" "}
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Img src="/Image/brutus.png" />
+        </SwiperSlide>
+      </Swiper>
+    </Flex>
   );
 }
