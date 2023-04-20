@@ -42,6 +42,7 @@ export const defaultTheme = extendTheme({
 
     "pf-grey": {
       main: "#ABABAB",
+      light1: "#EEEEEE",
     },
     "pf-black": {
       main: "#000000",
@@ -56,6 +57,10 @@ export const defaultTheme = extendTheme({
 
     "pf-red": {
       main: "#FF5353",
+    },
+
+    "pf-yellow": {
+      main: "#FFCE3E",
     },
   },
 
@@ -103,10 +108,12 @@ export const defaultTheme = extendTheme({
   },
 
   fontSizes: {
+    priceTit: "3.125rem", //50px
+    titleBig: "2.18rem", //35px
     title: "1.43rem", //23px
     title2: "1.12rem", //18px
     h3: "1.25rem", //20px
-    h4: "1,125rem", //18px
+    h4: "1.125rem", //18px
     text1: "1rem", //16px
     text2: "0.875rem", //14px
     text3: "0.75rem", //12px
