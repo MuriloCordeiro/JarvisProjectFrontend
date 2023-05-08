@@ -4,23 +4,22 @@ import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 
 import { Button, Flex, Text, Textarea } from "@chakra-ui/react";
 import { HandleGPT } from "../hooks/handleGPT";
+import React from "react";
 export default function Homepage() {
   const [prompt, setPrompt] = useState("");
   const [promptResponse, setPromptResponse] = useState("");
   const { speak } = useSpeechSynthesis();
 
-  const { listen, stop } = useSpeechRecognition({
+  const { listen, stop, listening } = useSpeechRecognition({
     onResult: (result: any) => {
       setPrompt(result);
       console.log("result", result);
     },
   });
-  console.log("stop", stop);
 
   async function executeGPT() {
-    stop;
+    stop();
     const response = await HandleGPT(prompt);
-
     if (response !== undefined) {
       setPromptResponse(response);
     }
@@ -51,10 +50,20 @@ export default function Homepage() {
           com a palavra Roberto
         </Text>
         <Flex mt="1rem" direction="column">
-          <Button onClick={listen} mr="1rem">
-            Gravar
-          </Button>
-
+          <Flex>
+            {/* {listening && "ta ouvindo"} */}
+            <Button
+              onClick={listen}
+              mr="1rem"
+              colorScheme="green"
+              isLoading={listening ? true : false}
+            >
+              Gravar
+            </Button>
+            <Button onClick={stop} colorScheme="red">
+              Parar gravação
+            </Button>
+          </Flex>
           <Text color="#D1D5DB" mt="4rem">
             O que voce disser será exibido aqui:
           </Text>
@@ -66,7 +75,6 @@ export default function Homepage() {
           {/* <Button onClick={() => speak({ lang: "pt-BR", text: promptResponse })}>
         Ouvir
       </Button> */}
-          {/* <Button onClick={stop}>Parar</Button> */}
           {/* <Button
         onClick={() => {
           teste();
