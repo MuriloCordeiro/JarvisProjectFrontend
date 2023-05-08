@@ -7,7 +7,7 @@ export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 
   // Aqui será enviado a chave de segurança
-  headers: {
-    Authorization: `Bearer ''`,
-  },
+  // headers: {
+  //   authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.ew.pf8yTOMRwM0dQpyxM0_Ueq9_RQlhCJ8RvWgK9R0-zpY`,
+  // },
 });

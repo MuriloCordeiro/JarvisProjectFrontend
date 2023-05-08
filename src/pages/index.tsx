@@ -1,48 +1,67 @@
-import { useState } from "react";
-import {
-  Flex,
-  Button,
-  Text,
-  useBreakpointValue,
-  Img,
-  Input,
-} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 
-import Layout from "../Layouts/layout";
-import { BannersCarousel } from "../components/Carousel/bannerCarousel";
-import SearchBySize from "../components/Search/Desktop/searchBySize";
-import SearchByRim from "../components/Search/Desktop/searchByRim";
-import SearchByVehicle from "../components/Search/Desktop/searchByVehicle";
-import WeeklyHighLights from "../components/weeklyHighlights";
-import { TiresOnSale } from "../components/tiresOnSale";
-import { DisplayBrands } from "../components/displayBrands";
-import { PneufreeBlog } from "../components/pneufreeBlog";
-// import { Slider } from "../components/Slider/Slider";
-import { SwiperProps, SwiperSlide } from "swiper/react";
-import Slider from "../components/Slider/Slider";
-export default function Home() {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    xs: false,
-    sm: false,
-    md: false,
-    lg: true,
-    xl: true,
+import { Button, Flex } from "@chakra-ui/react";
+import { HandleGPT } from "../hooks/handleGPT";
+export default function Homepage() {
+  const [prompt, setPrompt] = useState("");
+  const [promptResponse, setPromptResponse] = useState("");
+  const { speak } = useSpeechSynthesis();
+
+  const { listen, stop } = useSpeechRecognition({
+    onResult: (result: any) => {
+      setPrompt(result);
+      console.log("result", result);
+    },
   });
+  console.log("stop", stop);
+
+  async function executeGPT() {
+    stop;
+    const response = await HandleGPT(prompt);
+
+    if (response !== undefined) {
+      setPromptResponse(response);
+    }
+  }
+
+  useEffect(() => {
+    promptResponse !== ""
+      ? speak({ lang: "pt-BR", text: promptResponse })
+      : "Sem fala por aq";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [promptResponse]);
+
+  useEffect(() => {
+    prompt.includes("roberto") || prompt.includes("Roberto")
+      ? executeGPT()
+      : "";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prompt]);
 
   return (
-    <>
-      <BannersCarousel />
-      <Layout>
-        <SearchBySize />
-        <SearchByVehicle />
-        <SearchByRim />
-        {/* <Slider /> */}
-        <WeeklyHighLights />
-        <TiresOnSale />
-        <DisplayBrands />
-        <PneufreeBlog />
-      </Layout>
-    </>
+    <Flex>
+      {/* <Button
+        onClick={() => {
+          teste();
+        }}
+      ></Button> */}
+      {/* <Button
+        onClick={() => {
+          executeGPT();
+        }}
+      >
+        Iniciar bot
+      </Button> */}
+      <Button onClick={listen}>Gravar</Button>{" "}
+      <textarea
+        value={prompt}
+        onChange={(event) => setPrompt(event.target.value)}
+      />
+      {/* <Button onClick={() => speak({ lang: "pt-BR", text: promptResponse })}>
+        Ouvir
+      </Button> */}
+      <Button onClick={stop}>Parar</Button>
+    </Flex>
   );
 }
