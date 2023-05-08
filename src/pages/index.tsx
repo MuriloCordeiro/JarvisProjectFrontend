@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 
-import { Button, Flex, Text, Textarea } from "@chakra-ui/react";
+import { Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import { HandleGPT } from "../hooks/handleGPT";
 import React from "react";
 export default function Homepage() {
   const [prompt, setPrompt] = useState("");
+  const [apiKey, setApiKey] = useState("");
   const [promptResponse, setPromptResponse] = useState("");
   const { speak } = useSpeechSynthesis();
 
@@ -19,7 +20,7 @@ export default function Homepage() {
 
   async function executeGPT() {
     stop();
-    const response = await HandleGPT(prompt);
+    const response = await HandleGPT(prompt, apiKey);
     if (response !== undefined) {
       setPromptResponse(response);
     }
@@ -39,6 +40,9 @@ export default function Homepage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prompt]);
 
+  {
+    console.log("api key", apiKey);
+  }
   return (
     <Flex bgColor="#444654" w="100vw" h="100vh">
       <Flex align="center" justify="center" w="full" direction="column">
@@ -50,6 +54,17 @@ export default function Homepage() {
           com a palavra Roberto
         </Text>
         <Flex mt="1rem" direction="column">
+          <Text color="#D1D5DB">Insira sua api key aqui</Text>
+          <Input
+            mb="1rem"
+            color="#D1D5DB"
+            w="full"
+            value={apiKey}
+            onChange={(event) => {
+              setApiKey(event.target.value);
+            }}
+          />
+
           <Flex>
             {/* {listening && "ta ouvindo"} */}
             <Button
