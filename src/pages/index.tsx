@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Text, Textarea } from "@chakra-ui/react";
 import { HandleGPT } from "../hooks/handleGPT";
 export default function Homepage() {
   const [prompt, setPrompt] = useState("");
@@ -41,28 +41,45 @@ export default function Homepage() {
   }, [prompt]);
 
   return (
-    <Flex>
-      {/* <Button
+    <Flex bgColor="#444654" w="100vw" h="100vh">
+      <Flex align="center" justify="center" w="full" direction="column">
+        <Text color="#D1D5DB" fontSize="24px" mb="2rem">
+          Seja bem vindo ao Roberto, o Jarvis Brasileiro
+        </Text>
+        <Text color="#D1D5DB">
+          Pressione o botão Gravar para começar e sempre encerre seu discurso
+          com a palavra Roberto
+        </Text>
+        <Flex mt="1rem" direction="column">
+          <Button onClick={listen} mr="1rem">
+            Gravar
+          </Button>
+
+          <Text color="#D1D5DB" mt="4rem">
+            O que voce disser será exibido aqui:
+          </Text>
+          <Textarea
+            value={prompt}
+            onChange={(event: any) => setPrompt(event.target.value)}
+          />
+          {/* <Button onClick={() => speak({ lang: "pt-BR", text: promptResponse })}>
+        Ouvir
+      </Button> */}
+          {/* <Button onClick={stop}>Parar</Button> */}
+          {/* <Button
         onClick={() => {
           teste();
         }}
       ></Button> */}
-      {/* <Button
+          {/* <Button
         onClick={() => {
           executeGPT();
         }}
       >
         Iniciar bot
       </Button> */}
-      <Button onClick={listen}>Gravar</Button>{" "}
-      <textarea
-        value={prompt}
-        onChange={(event) => setPrompt(event.target.value)}
-      />
-      {/* <Button onClick={() => speak({ lang: "pt-BR", text: promptResponse })}>
-        Ouvir
-      </Button> */}
-      <Button onClick={stop}>Parar</Button>
+        </Flex>
+      </Flex>
     </Flex>
   );
 }
