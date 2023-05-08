@@ -59,6 +59,7 @@ export default function Homepage() {
             O que voce disser será exibido aqui:
           </Text>
           <Textarea
+            color="#D1D5DB"
             value={prompt}
             onChange={(event: any) => setPrompt(event.target.value)}
           />
